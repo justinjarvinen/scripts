@@ -7,14 +7,17 @@ metadata:
 spec:
   ports:
   - nodePort: 
+    name: sonar
     port: 8989
     protocol: TCP
     targetPort: 8989
   - nodePort: 
+    name: couchpotato
     port: 5050
     protocol: TCP
     targetPort: 5050
   - nodePort: 
+    name: nzbget
     port: 6789
     protocol: TCP
     targetPort: 6789
