@@ -1,22 +1,15 @@
----
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: sonarr-deployment
   labels:
     app: media
+  name: sonarr-service
 spec:
-  replicas: 1
+  ports:
+  - nodePort: 
+    port: 8989
+    protocol: TCP
+    targetPort: 8989
   selector:
-    matchLabels:
-      app: media
-  template:
-    metadata:
-      labels:
-        app: media
-    spec:
-      containers:
-      - name: sonarr
-        image: linuxserver/sonarr
-        ports:
-        - containerPort: 8989
+    app: media
+  type: NodePort
