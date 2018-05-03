@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: media-deployment
+  labels:
+    app: media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media
+  template:
+    metadata:
+      labels:
+        app: media
+    spec:
+      containers:
+      - name: sonarr
+        image: linuxserver/sonarr
+        ports:
+        - containerPort: 8989
+      - name: nzbget
+        image: linuxserver/nzbget
+        ports:
+        - containerPort: 6789
+      - name: couchpotato
+        image: linuxserver/couchpotato
+        ports:
+        - containerPort: 5050
