@@ -17,13 +17,6 @@ spec:
     spec:
       containers:
       - name: sonarr
-        image: linuxserver\sonarr
+        image: linuxserver/sonarr
         ports:
         - containerPort: 8989
-        env:
-          - name: TZ
-            value: America\Chicago
-          - name: PUID
-            value: 1006
-          - name: PGID
-            value: 1005
