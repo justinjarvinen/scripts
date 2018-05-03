@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: couchpotato-deployment
+  labels:
+    app: media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: media
+  template:
+    metadata:
+      labels:
+        app: media
+    spec:
+      containers:
+      - name: sonarr
+        image: linuxserver/couchpotato
+        ports:
+        - containerPort: 5050
